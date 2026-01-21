@@ -6,18 +6,9 @@
   <title>Rafacles</title>
 
   <style>
-    /* Corpo e centralização */
-    body {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0; /* fundo claro */
-      color: #111; /* texto escuro */
-    }
-
     /* Cabeçalho: logo + nome */
     .site-header {
+      text-align: center;
       margin-top: 20px;
     }
 
@@ -29,7 +20,8 @@
 
     .site-title {
       margin-top: 8px;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      font-family: Arial, sans-serif;
     }
 
     /* Botões dos jogos */
@@ -50,43 +42,10 @@
       background-color: #45a049;
     }
 
-    /* Container do jogo iframe */
-    .game-container {
-      width: 100%;
-      min-height: 60vh;
-      background: black; /* fundo do jogo */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .game-aspect {
-      width: 100%;
-      max-width: 100vw;
-      aspect-ratio: 16 / 9;
-      background: black;
-    }
-
-    .game-aspect iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    /* Mobile vertical */
-    @media (orientation: portrait) {
-      .game-container {
-        min-height: 50vh;
-      }
-    }
-
-    /* Mobile horizontal */
-    @media (orientation: landscape) {
-      .game-container {
-        min-height: 100vh;
-      }
+    /* Centralizar todo o corpo */
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
@@ -94,24 +53,21 @@
 <body>
   <!-- Cabeçalho: logo + nome -->
   <header class="site-header">
-    <img src="logo.png" alt="Logo Rafacles" class="logo">
+    <img src="images/logo.png" alt="Logo do site" class="logo">
     <h1 class="site-title">Rafacles</h1>
   </header>
 
-  <!-- Botão para abrir o jogo em nova aba -->
+  <!-- Botões dos jogos -->
   <a href="https://jocular-praline-b7d3e7.netlify.app" target="_blank" class="botao-jogo">
     Jogar Jogo do Avião ✈️
   </a>
 
-  <!-- Iframe do jogo embutido -->
-  <div class="game-container">
-    <div class="game-aspect">
-      <iframe
-        src="https://jocular-praline-b7d3e7.netlify.app"
-        allow="autoplay; gamepad; accelerometer; gyroscope"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
+  <!-- Exemplo de outro botão de jogo -->
+  <!--
+  <a href="https://seuoutrojogo.netlify.app" target="_blank" class="botao-jogo">
+    Jogar Outro Jogo
+  </a>
+  -->
+
 </body>
 </html>
