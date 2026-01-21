@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<<style>
-  .site-header {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .logo {
-    width: 80px;        /* tamanho bom pra mobile */
-    max-width: 30vw;    /* nunca fica gigante */
-    height: auto;
-  }
-
-  .site-title {
-    margin-top: 8px;
-    font-size: 1.4rem;
-    font-family: Arial, sans-serif;
-  }
-</style>
->
+<head>
   <meta charset="UTF-8">
-  <title>Meus Jogos</title>
+  <title>Rafacles</title>
+  <style>
+    .site-header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .logo {
+      width: 80px;
+      max-width: 30vw;
+      height: auto;
+    }
+
+    .site-title {
+      margin-top: 8px;
+      font-size: 1.4rem;
+      font-family: Arial, sans-serif;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    .botao-jogo {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 20px auto;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .botao-jogo:hover {
+      background-color: #45a049;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+  </style>
 </head>
-<<header class="site-header">
-  <img src="images/logo.png" alt="Logo do site" class="logo">
-  <h1 class="site-title">Rafacles</h1>
-</header>
->
+<body>
+
+  <header class="site-header">
+    <img src="images/logo.png" alt="Logo do site" class="logo">
+    <h1 class="site-title">Rafacles</h1>
+  </header>
+
   <h1>🎮 Meus Jogos HTML5</h1>
   <p>Bem-vindo ao meu site!</p>
+
+  <!-- Botão que abre o jogo na página interna -->
+  <a href="jogo.html" class="botao-jogo">Jogar Jogo do Avião ✈️</a>
+
 </body>
 </html>
