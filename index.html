@@ -4,46 +4,38 @@
   <meta charset="UTF-8">
   <title>Rafacles</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #000; /* fundo preto */
-      color: #fff; /* texto branco */
-      text-align: center;
-    }
-
     .site-header {
       text-align: center;
       margin-top: 20px;
     }
 
     .logo {
-      width: 80px;
-      max-width: 30vw;
+      width: 80px;        /* tamanho bom pra mobile */
+      max-width: 30vw;    /* nunca fica gigante */
       height: auto;
-      display: block;
-      margin: 0 auto;
     }
 
     .site-title {
       margin-top: 8px;
-      font-size: 1.2rem; /* menor título */
+      font-size: 1.4rem;
+      font-family: Arial, sans-serif;
     }
 
     h1, p {
+      text-align: center;
       margin: 10px 0;
     }
 
+    /* Estilo simples do botão */
     .botao-jogo {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 10px 20px;
       margin: 20px auto;
       background-color: #4CAF50;
       color: white;
       font-size: 1rem;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       transition: background-color 0.3s;
     }
 
@@ -54,17 +46,15 @@
 </head>
 <body>
 
-  <!-- Cabeçalho com logo e título -->
   <header class="site-header">
     <img src="images/logo.png" alt="Logo do site" class="logo">
     <h1 class="site-title">Rafacles</h1>
   </header>
 
-  <!-- Conteúdo da página -->
   <h1>🎮 Meus Jogos HTML5</h1>
   <p>Bem-vindo ao meu site!</p>
 
-  <!-- Botão para abrir o jogo -->
+  <!-- Botão simples para abrir a página do jogo -->
   <a href="jogo.html" class="botao-jogo">Jogar Jogo do Avião ✈️</a>
 
 </body>
