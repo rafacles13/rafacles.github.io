@@ -4,30 +4,31 @@
   <meta charset="UTF-8">
   <title>Rafacles</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #000; /* fundo preto */
+      color: #fff; /* texto branco */
+      text-align: center;
+    }
+
     .site-header {
       text-align: center;
       margin-top: 20px;
     }
 
     .logo {
-      width: 80px;        /* tamanho bom pra mobile */
-      max-width: 30vw;    /* nunca fica gigante */
+      width: 80px;
+      max-width: 30vw;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .site-title {
       margin-top: 8px;
-      font-size: 1.4rem;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-      background-color: #000; /* fundo preto */
-      color: #fff; /* texto branco */
+      font-size: 1.2rem; /* menor título */
     }
 
     h1, p {
@@ -53,11 +54,13 @@
 </head>
 <body>
 
+  <!-- Cabeçalho com logo e título -->
   <header class="site-header">
     <img src="images/logo.png" alt="Logo do site" class="logo">
     <h1 class="site-title">Rafacles</h1>
   </header>
 
+  <!-- Conteúdo da página -->
   <h1>🎮 Meus Jogos HTML5</h1>
   <p>Bem-vindo ao meu site!</p>
 
