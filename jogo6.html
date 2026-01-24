@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Rafacles - Jogo 4</title>
 
-  <!-- FUNDAMENTAL PARA MOBILE -->
   <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -15,20 +14,14 @@
       width: 100%;
       height: 100%;
       background-color: #000;
-      font-family: Arial, sans-serif;
       overflow: hidden;
+      font-family: Arial, sans-serif;
       color: white;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     /* Overlay inicial */
     .overlay {
-      position: absolute;
+      position: fixed;
       inset: 0;
       background-color: rgba(0,0,0,0.9);
       display: flex;
@@ -54,31 +47,33 @@
       background-color: #F57C00;
     }
 
-    /* Container do jogo */
+    /* Área do jogo */
     .game-container {
+      position: fixed;
+      inset: 0;
+      background-color: #000;
       display: none;
-      width: 100vw;
-      height: 100vh;
       overflow: hidden;
-      justify-content: center;
-      align-items: center;
     }
 
-    /* Iframe com tamanho FIXO do Godot */
-    .game-container iframe {
+    /* Iframe do Godot */
+    #gameIframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 1280px;
       height: 720px;
       border: none;
-      transform-origin: top left;
+      transform-origin: center center;
     }
 
-    /* Mensagem para girar o celular */
+    /* Aviso rotação */
     .rotate-message {
-      display: none;
-      position: absolute;
+      position: fixed;
       inset: 0;
       background-color: #000;
       z-index: 20;
+      display: none;
       justify-content: center;
       align-items: center;
       font-size: 1.5rem;
@@ -109,7 +104,7 @@
     </iframe>
   </div>
 
-  <!-- Aviso rotação -->
+  <!-- Mensagem rotação -->
   <div class="rotate-message">
     <p>Gire o celular para jogar</p>
   </div>
@@ -124,22 +119,23 @@
     const GAME_HEIGHT = 720;
 
     function resizeGame() {
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
       const scale = Math.min(
-        screenWidth / GAME_WIDTH,
-        screenHeight / GAME_HEIGHT
+        vw / GAME_WIDTH,
+        vh / GAME_HEIGHT
       );
 
-      iframe.style.transform = `scale(${scale})`;
+      iframe.style.transform =
+        `translate(-50%, -50%) scale(${scale})`;
     }
 
     playBtn.addEventListener("click", () => {
       overlay.style.display = "none";
-      gameContainer.style.display = "flex";
+      gameContainer.style.display = "block";
 
-      setTimeout(resizeGame, 100);
+      setTimeout(resizeGame, 200);
     });
 
     window.addEventListener("resize", resizeGame);
