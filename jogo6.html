@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Rafacles - Jogo 4</title>
 
-  <!-- ESSENCIAL PARA MOBILE -->
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- FUNDAMENTAL PARA MOBILE -->
+  <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <style>
     html, body {
@@ -15,8 +16,8 @@
       height: 100%;
       background-color: #000;
       font-family: Arial, sans-serif;
-      color: white;
       overflow: hidden;
+      color: white;
     }
 
     body {
@@ -40,12 +41,12 @@
 
     .overlay button {
       margin-top: 20px;
-      padding: 12px 24px;
+      padding: 12px 26px;
       font-size: 1rem;
       border: none;
       border-radius: 6px;
       background-color: #FF9800;
-      color: white;
+      color: #fff;
       cursor: pointer;
     }
 
@@ -58,27 +59,20 @@
       display: none;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
       justify-content: center;
       align-items: center;
     }
 
-    /* Wrapper com proporção 16:9 */
-    .game-wrapper {
-      width: 100%;
-      height: 100%;
-      max-width: 100vw;
-      max-height: 100vh;
-      aspect-ratio: 16 / 9;
-      background-color: #000;
-    }
-
-    .game-wrapper iframe {
-      width: 100%;
-      height: 100%;
+    /* Iframe com tamanho FIXO do Godot */
+    .game-container iframe {
+      width: 1280px;
+      height: 720px;
       border: none;
+      transform-origin: top left;
     }
 
-    /* Mensagem para virar o celular */
+    /* Mensagem para girar o celular */
     .rotate-message {
       display: none;
       position: absolute;
@@ -108,15 +102,14 @@
 
   <!-- Jogo -->
   <div class="game-container" id="gameContainer">
-    <div class="game-wrapper">
-      <iframe 
-        src="https://inquisitive-nougat-25227a.netlify.app"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <iframe
+      id="gameIframe"
+      src="https://inquisitive-nougat-25227a.netlify.app"
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <!-- Mensagem rotação -->
+  <!-- Aviso rotação -->
   <div class="rotate-message">
     <p>Gire o celular para jogar</p>
   </div>
@@ -125,10 +118,33 @@
     const playBtn = document.getElementById("playBtn");
     const overlay = document.getElementById("overlay");
     const gameContainer = document.getElementById("gameContainer");
+    const iframe = document.getElementById("gameIframe");
+
+    const GAME_WIDTH = 1280;
+    const GAME_HEIGHT = 720;
+
+    function resizeGame() {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      const scale = Math.min(
+        screenWidth / GAME_WIDTH,
+        screenHeight / GAME_HEIGHT
+      );
+
+      iframe.style.transform = `scale(${scale})`;
+    }
 
     playBtn.addEventListener("click", () => {
       overlay.style.display = "none";
       gameContainer.style.display = "flex";
+
+      setTimeout(resizeGame, 100);
+    });
+
+    window.addEventListener("resize", resizeGame);
+    window.addEventListener("orientationchange", () => {
+      setTimeout(resizeGame, 300);
     });
   </script>
 
